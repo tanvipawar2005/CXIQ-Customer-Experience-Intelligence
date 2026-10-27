@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.venv/
+env/
+
+# Backend runtime artifacts
+# sentiment_lr.joblib retrains automatically in seconds on startup, so it's
+# excluded. absa_context_lr.joblib takes real data + minutes to retrain
+# (see scripts/train_absa_model.py) and is committed so the app works with
+# its real, measured accuracy out of the box — see docs/absa_model_evaluation.md.
+backend/app/models/sentiment_lr.joblib
+!backend/app/models/.gitkeep
+
+# Large raw dataset clone (kept only for reference/reproducibility; the
+# cleaned CSVs actually used for training live in data/training/mams/)
+backend/data/training/mams_raw/
+
+# Environment
+.env
+*.env.local
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log

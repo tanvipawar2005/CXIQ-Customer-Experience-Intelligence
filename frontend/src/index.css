@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-ink font-body antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: #C98A2B33;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #0F6B5C;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #D8DEDE;
+  border-radius: 999px;
+}
+
+/* Shared hover-lift treatment for interactive cards/rows across the app.
+   Keeps the existing color palette untouched — only adds motion + shadow. */
+.hover-card {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.hover-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16, 21, 31, 0.08);
+  border-color: #0F6B5C33;
+}
+
+.hover-row {
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+.hover-row:hover {
+  background-color: #F5F7F7;
+  transform: translateX(2px);
+}
